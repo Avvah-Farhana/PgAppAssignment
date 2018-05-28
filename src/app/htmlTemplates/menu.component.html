@@ -1,0 +1,24 @@
+<body>
+        <div>
+            <button (click)="openForm();">{{addMember? "Finish": "Add Member To Girls Pg"}}</button>
+            <div *ngIf="addMember">
+                <form #f="ngForm" (ngSubmit)="onSubmitTemplateBased()">
+                    <label>Name</label>
+                    <input type="text" [(ngModel)]="memb.Name" name = "Name" required/>
+                    <label>Age</label>
+                    <input type="number" [(ngModel)]="memb.Age" name = "Age" required/>
+                    <label>Joining Date</label>
+                    <input type="text" [(ngModel)]="memb.JoinedOn" name = "JoinedOn" required/>
+    
+                    <button [disabled]="!f.form.valid" (click)="SubmitMember(f)">Submit</button>
+    
+                </form>
+            </div>
+        </div>
+                                            
+    
+            <div>
+                <button class="button1" (click)="gotogirlspg();"><span>Girls PG</span></button>
+                <button class="button2" (click)="gotoboyspg();"><span>Boys PG</span></button>
+            </div> 
+    </body>

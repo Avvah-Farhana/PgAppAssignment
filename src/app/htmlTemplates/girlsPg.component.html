@@ -1,0 +1,33 @@
+<div bgcolor="#FAA8CC">
+        <div class="dropdown">
+                <button class="dropbtn">Sort By</button>
+                <div class="dropdown-content">
+                  <a (click)="sortType('Name')" [class.active]="sortBy==='Name'">Name</a>
+                  <a (click)="sortType('Age')" [class.active]="sortBy==='Age'">Age</a>
+                </div>
+              </div> 
+
+              
+              
+                  <label>Search By name</label>
+                  <input [(ngModel)]="term">
+              
+            
+                <button class="menu" (click)="mainmenu()">Main Menu</button>
+            
+
+    <table>
+        <tr>
+            <!-- <th>#</th>  -->
+            <th>Name</th> 
+            <th>Age</th>
+            <th>Joined On</th>
+        </tr>
+        <tr *ngFor = "let theGirl of theGirls | filter:term">
+            <!-- <td>{{i+1}}</td> -->
+            <td>{{theGirl.Name}}</td>
+            <td>{{theGirl.Age}}</td>
+            <td>{{theGirl.JoinedOn}}</td>
+        </tr>
+    </table>
+</div>
